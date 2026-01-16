@@ -1,0 +1,40 @@
+<svg width="900" height="260" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Instituto Universitario de Ciencias Ambientales</title>
+  <defs>
+    <linearGradient id="colibriWing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34c0f6"/>
+      <stop offset="100%" stop-color="#1476c2"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="260" fill="none"/>
+  <g transform="translate(20 20)">
+    <g>
+      <path d="M40 0h80L80 70z" fill="#69b12c"/>
+      <path d="M0 80l40-30 40 30-40 30z" fill="#69b12c"/>
+      <path d="M120 80L80 50 80 110z" fill="#69b12c"/>
+      <path d="M40 140h80l-40 70z" fill="#69b12c"/>
+      <path d="M120 80h80l-40 70z" fill="#0f9ed6"/>
+      <path d="M80 150l80-30v60z" fill="#0f9ed6"/>
+      <path d="M120 210l40-70 40 70z" fill="#0f9ed6"/>
+      <path d="M80 170l80 0-40 70z" fill="#0f9ed6"/>
+      <path d="M80 50l30 30-30 30-30-30z" fill="#fff"/>
+      <path d="M120 80l30 30-30 30-30-30z" fill="#fff"/>
+    </g>
+    <g transform="translate(170 30)">
+      <text x="0" y="70" fill="#1195d2" font-family="Helvetica, Arial, sans-serif" font-size="72" font-weight="600" letter-spacing="6">
+        INSTITUTO UNIVERSITARIO
+      </text>
+      <text x="0" y="135" fill="#1195d2" font-family="Helvetica, Arial, sans-serif" font-size="52" letter-spacing="8">
+        DE CIENCIAS AMBIENTALES
+      </text>
+    </g>
+    <g transform="translate(640 -5)">
+      <polygon points="0 80 90 5 120 40 40 100" fill="url(#colibriWing)"/>
+      <polygon points="10 110 95 60 125 95 40 125" fill="#1085d2"/>
+      <polygon points="20 135 110 125 130 150 60 160" fill="#0e66b6"/>
+      <polygon points="35 45 120 35 150 20 170 25 100 50" fill="#f0c24b"/>
+      <polygon points="150 25 170 25 185 35 150 45" fill="#c9902c"/>
+      <circle cx="90" cy="80" r="6" fill="#0b3d64"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">IUCA colibri</title>
+  <defs>
+    <linearGradient id="wing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f9ad7" />
+      <stop offset="100%" stop-color="#1566c0" />
+    </linearGradient>
+  </defs>
+  <rect width="220" height="220" fill="none"/>
+  <g transform="translate(10 10)">
+    <g opacity="0.95">
+      <polygon points="20 0 65 0 42.5 45" fill="#69b12c"/>
+      <polygon points="0 60 42.5 45 42.5 90" fill="#69b12c"/>
+      <polygon points="65 60 42.5 45 42.5 90" fill="#69b12c"/>
+      <polygon points="20 110 65 110 42.5 155" fill="#69b12c"/>
+      <polygon points="87.5 60 132.5 60 110 105" fill="#1195d2"/>
+      <polygon points="65 120 110 105 110 150" fill="#1195d2"/>
+      <polygon points="90 170 110 130 130 170" fill="#1195d2"/>
+      <polygon points="42.5 155 87.5 155 65 195" fill="#1195d2"/>
+      <polygon points="42.5 45 65 60 42.5 75 20 60" fill="#ffffff"/>
+      <polygon points="87.5 60 110 75 87.5 90 65 75" fill="#ffffff"/>
+    </g>
+    <g transform="translate(110 10)">
+      <polygon points="0 50 60 0 85 35 40 65" fill="url(#wing)"/>
+      <polygon points="10 70 60 40 95 75 35 95" fill="#0f73c8"/>
+      <polygon points="15 90 85 85 100 105 50 115" fill="#0d5aa3"/>
+      <polygon points="20 20 70 15 100 0 120 5 70 25" fill="#f0c24b"/>
+      <polygon points="105 15 120 5 140 8 110 22" fill="#c9902c"/>
+      <circle cx="65" cy="40" r="6" fill="#0c3b63"/>
+    </g>
+    <text x="20" y="190" fill="#6c737f" font-family="Helvetica, Arial, sans-serif" font-size="28" letter-spacing="6">
+      IUCA
+    </text>
+  </g>
+</svg>

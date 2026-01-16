@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo-iuca.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IUCA - Plataforma Académica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'iuca-green': {
+                '50': '#f2f9f2',
+                '100': '#e3f2e1',
+                '200': '#c6e6c0',
+                '300': '#a5d59a',
+                '400': '#82c274',
+                '500': '#6aae4f',   <!-- tono cercano al verde del logo -->
+                '600': '#57953f',
+                '700': '#457a33',
+                '800': '#366027',
+                '900': '#294b1e',
+                '950': '#152a11',
+              },
+              'iuca-blue': {
+                '50': '#edf7fb',
+                '100': '#d5ecf7',
+                '200': '#b0dbf0',
+                '300': '#80c6e6',
+                '400': '#4aaad8',
+                '500': '#2f8fc2',   <!-- azul principal basado en el logo -->
+                '600': '#2376a6',
+                '700': '#1c6088',
+                '800': '#194f70',
+                '900': '#163f5c',
+                '950': '#0f293c',
+              },
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+              'slide-in-left': 'slideInLeft 0.5s ease-out forwards',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideInLeft: {
+                '0%': { opacity: '0', transform: 'translateX(-20px)' },
+                '100%': { opacity: '1', transform: 'translateX(0)' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+<!-- importmap removido para evitar conflictos con Vite -->
+<!-- index.css no es necesario; removido para evitar 404 en dev/preview -->
+</head>
+<body class="bg-slate-50 dark:bg-slate-900">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
+

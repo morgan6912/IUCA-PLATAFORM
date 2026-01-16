@@ -1,0 +1,150 @@
+import React from 'react';
+import { useAuth } from '../hooks/useAuth';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { Book, CheckCircle, Clock, Users, FileDown, MessageSquare } from 'lucide-react';
+import { Role } from '../types';
+import { useAnnouncements } from '../hooks/useAnnouncements';
+import { useCourses } from '../hooks/useCourses';
+
+const chartData = [
+  { name: 'Sem 1', Calificación: 8.5 },
+  { name: 'Sem 2', Calificación: 8.8 },
+  { name: 'Sem 3', Calificación: 9.1 },
+  { name: 'Sem 4', Calificación: 8.9 },
+  { name: 'Sem 5', Calificación: 9.3 },
+];
+
+interface StatsCardProps {
+  title: string;
+  value: string;
+  icon: React.ReactNode;
+  style?: React.CSSProperties;
+}
+
+const StatsCard: React.FC<StatsCardProps> = ({ title, value, icon, style }) => (
+  <div
+    className="bg-white p-6 rounded-xl shadow-md flex items-center space-x-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl opacity-0 animate-fade-in-up"
+    style={style}
+  >
+    <div className="bg-iuca-green-100 p-3 rounded-full">{icon}</div>
+    <div>
+      <p className="text-slate-500 text-sm">{title}</p>
+      <p className="text-2xl font-bold text-slate-800">{value}</p>
+    </div>
+  </div>
+);
+
+const DashboardPage: React.FC = () => {
+  const { user } = useAuth();
+  const { items: announcements } = useAnnouncements();
+  const { myCourses } = useCourses();
+
+  const stats = React.useMemo(() => {
+    switch (user?.role) {
+      case Role.ESTUDIANTE:
+        return [
+          { title: 'Cursos Inscritos', value: '3', icon: <Book className="h-6 w-6 text-iuca-green-600" /> },
+          { title: 'Promedio General', value: '9.0', icon: <CheckCircle className="h-6 w-6 text-iuca-green-600" /> },
+          { title: 'PrÃ³xima Entrega', value: 'Viernes', icon: <Clock className="h-6 w-6 text-iuca-green-600" /> },
+        ];
+      case Role.DOCENTE:
+        return [
+          { title: 'Cursos Activos', value: '4', icon: <Book className="h-6 w-6 text-iuca-green-600" /> },
+          { title: 'Estudiantes Totales', value: '120', icon: <Users className="h-6 w-6 text-iuca-green-600" /> },
+          { title: 'Tareas por Calificar', value: '12', icon: <CheckCircle className="h-6 w-6 text-iuca-green-600" /> },
+        ];
+      case Role.ADMINISTRATIVO:
+        return [
+          { title: 'MatrÃ­culas Pendientes', value: '7', icon: <FileDown className="h-6 w-6 text-iuca-green-600" /> },
+          { title: 'Usuarios Activos', value: '325', icon: <Users className="h-6 w-6 text-iuca-green-600" /> },
+          { title: 'Comunicados', value: String(announcements.length), icon: <MessageSquare className="h-6 w-6 text-iuca-green-600" /> },
+        ];
+      case Role.DIRECTIVO:
+        return [
+          { title: 'MatrÃ­cula (actual)', value: '1,240', icon: <Users className="h-6 w-6 text-iuca-green-600" /> },
+          { title: 'Rendimiento Promedio', value: '8.9', icon: <CheckCircle className="h-6 w-6 text-iuca-green-600" /> },
+          { title: 'Carga Docente', value: '85%', icon: <Book className="h-6 w-6 text-iuca-green-600" /> },
+        ];
+      default:
+        return [];
+    }
+  }, [user?.role, announcements.length]);
+
+  return (
+    <div className="space-y-8">
+      <div className="relative bg-gradient-to-r from-iuca-blue-700 to-iuca-green-600 p-6 rounded-xl shadow-lg overflow-hidden animate-fade-in">
+        <div className="absolute right-0 top-0 -mt-4 -mr-16 w-48 h-48 bg-iuca-blue-800 rounded-full opacity-50"></div>
+        <div className="relative">
+          <h1 className="text-2xl md:text-3xl text-white font-bold mb-2">Â¡Bienvenido de nuevo, {user?.name.split(' ')[0]}!</h1>
+          <p className="text-iuca-blue-200">AquÃ­ tienes un resumen de tu actividad acadÃ©mica.</p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {stats.map((stat, index) => (
+          <StatsCard
+            key={stat.title}
+            title={stat.title}
+            value={stat.value}
+            icon={stat.icon}
+            style={{ animationDelay: `${100 + index * 100}ms` }}
+          />
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-white p-6 rounded-xl shadow-md opacity-0 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+          <h2 className="text-lg font-semibold text-slate-800 mb-4">Progreso AcadÃ©mico</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={chartData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip wrapperClassName="!bg-white !border-slate-200 !rounded-lg !shadow-lg" />
+              <Legend />
+              <Bar dataKey="Calificación" fill="#429b75" radius={[4, 4, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="bg-white p-6 rounded-xl shadow-md opacity-0 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+          <h2 className="text-lg font-semibold text-slate-800 mb-4">Anuncios Recientes</h2>
+          <ul className="space-y-4">
+            {announcements.slice(0, 4).map((a) => (
+              <li key={a.id} className="flex items-start space-x-3">
+                <div className="bg-iuca-blue-100 text-iuca-blue-600 font-bold rounded-full h-8 w-8 flex items-center justify-center text-sm flex-shrink-0">
+                  {a.author.split(' ').map((s) => s[0]).join('').slice(0, 2).toUpperCase()}
+                </div>
+                <div>
+                  <p className="text-slate-800 font-semibold">{a.title}</p>
+                  <p className="text-slate-600 text-sm">{a.body}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {user?.role === Role.ESTUDIANTE && (
+          <div className="bg-white p-6 rounded-xl shadow-md opacity-0 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+            <h2 className="text-lg font-semibold text-slate-800 mb-4">Mis Cursos</h2>
+            {myCourses.length === 0 ? (
+              <p className="text-slate-600">AÃºn no estÃ¡s inscrito en cursos.</p>
+            ) : (
+              <ul className="space-y-2">
+                {myCourses.slice(0, 5).map((c) => (
+                  <li key={c.id} className="flex items-center justify-between">
+                    <span className="text-slate-800">{c.code} â€” {c.name}</span>
+                    <span className="text-xs text-slate-500">{c.schedule}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default DashboardPage;
+

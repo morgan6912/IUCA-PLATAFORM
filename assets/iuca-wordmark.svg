@@ -1,0 +1,27 @@
+<svg width="600" height="160" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Logotipo Instituto Universitario de Ciencias Ambientales</title>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(0 10) scale(0.8)">
+      <g fill="#69b12c">
+        <polygon points="30 0 90 0 60 60"/>
+        <polygon points="0 90 60 60 60 120"/>
+        <polygon points="90 90 60 60 60 120"/>
+        <polygon points="30 150 90 150 60 210"/>
+      </g>
+      <g fill="#1195d2">
+        <polygon points="120 90 180 90 150 150"/>
+        <polygon points="90 180 150 150 150 210"/>
+        <polygon points="120 240 150 180 180 240"/>
+        <polygon points="60 210 120 210 90 260"/>
+      </g>
+      <polygon fill="#ffffff" points="60 60 90 90 60 120 30 90"/>
+      <polygon fill="#ffffff" points="120 90 150 120 120 150 90 120"/>
+    </g>
+    <text x="190" y="65" fill="#1195d2" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="600" letter-spacing="4">
+      INSTITUTO UNIVERSITARIO
+    </text>
+    <text x="190" y="120" fill="#1195d2" font-family="Helvetica, Arial, sans-serif" font-size="26" letter-spacing="3">
+      DE CIENCIAS AMBIENTALES
+    </text>
+  </g>
+</svg>

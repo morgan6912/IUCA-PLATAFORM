@@ -1,0 +1,28 @@
+<svg width="260" height="240" viewBox="0 0 260 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">IUCA Colibri</title>
+  <g transform="translate(10 10)" fill="none" fill-rule="evenodd">
+    <g>
+      <path d="M40 0h90L85 70z" fill="#69b12c"/>
+      <path d="M0 90l40-30 40 30-40 30z" fill="#69b12c"/>
+      <path d="M130 90L85 60v60z" fill="#69b12c"/>
+      <path d="M40 150h90l-45 70z" fill="#69b12c"/>
+      <path d="M130 90h90l-45 70z" fill="#0f9ed6"/>
+      <path d="M85 160l90-30v60z" fill="#0f9ed6"/>
+      <path d="M115 210l50-80 50 80z" fill="#0f9ed6"/>
+      <path d="M85 180l90 0-45 50z" fill="#0f9ed6"/>
+      <path d="M85 60l30 30-30 30-30-30z" fill="#fff"/>
+      <path d="M135 90l30 30-30 30-30-30z" fill="#fff"/>
+    </g>
+    <g transform="translate(160 -5)">
+      <polygon points="0 80 95 10 125 45 45 105" fill="#1ca7df"/>
+      <polygon points="15 110 105 55 135 90 50 130" fill="#1085d2"/>
+      <polygon points="20 135 115 130 140 155 65 170" fill="#0d66a3"/>
+      <polygon points="30 40 120 30 150 15 170 20 100 45" fill="#f0c24b"/>
+      <polygon points="148 20 170 20 190 30 150 40" fill="#c9902c"/>
+      <circle cx="95" cy="70" r="6" fill="#0b3d64"/>
+    </g>
+    <text x="60" y="215" fill="#5f6670" font-family="Helvetica, Arial, sans-serif" font-size="32" letter-spacing="8">
+      IUCA
+    </text>
+  </g>
+</svg>
